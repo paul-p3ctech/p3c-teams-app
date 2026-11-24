@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.19",
+  "version": "1.0.0",
+  "id": "8cbfbc2d-8427-46b4-bb14-1d120751ecce",
+  "developer": {
+    "name": "P3C Technologies LLC",
+    "websiteUrl": "https://YOUR-HOST-HERE",
+    "privacyUrl": "https://YOUR-HOST-HERE/privacy",
+    "termsOfUseUrl": "https://YOUR-HOST-HERE/terms"
+  },
+  "name": {
+    "short": "P3C Support",
+    "full": "P3C Technologies Support Portal"
+  },
+  "description": {
+    "short": "Get IT help from P3C Technologies.",
+    "full": "Open tickets, find forms, and reach the P3C Technologies support team without leaving Teams."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#2E2A75",
+  "staticTabs": [
+    {
+      "entityId": "home",
+      "name": "Home",
+      "contentUrl": "https://YOUR-HOST-HERE/index.html",
+      "websiteUrl": "https://YOUR-HOST-HERE/index.html",
+      "scopes": ["personal"]
+    },
+    {
+      "entityId": "about",
+      "scopes": ["personal"]
+    }
+  ],
+  "permissions": ["identity"],
+  "validDomains": ["YOUR-HOST-HERE"]
+}

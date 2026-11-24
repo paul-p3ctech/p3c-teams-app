@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P3C Support</title>
+  <script src="https://cdn.jsdelivr.net/npm/@microsoft/teams-js@2.58.0/dist/umd/MicrosoftTeams.min.js"></script>
+  <style>
+    :root { --bg:#ffffff; --text:#1f1d3d; --muted:#5b5a72; --brand:#2E2A75; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#1f1f1f; --text:#f2f2f5; --muted:#b4b3c4; --brand:#8f8ae0; } }
+    body { margin:0; background:var(--bg); color:var(--text);
+           font-family:"Segoe UI", system-ui, sans-serif; }
+    main { max-width:640px; padding:48px 32px; }
+    h1 { color:var(--brand); font-size:2rem; margin:0 0 8px; }
+    p  { color:var(--muted); line-height:1.5; }
+    code { font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Hello world</h1>
+    <p>The P3C Technologies support app is installed and working.</p>
+    <p id="ctx">Checking Teams connection…</p>
+  </main>
+  <script>
+    const ctx = document.getElementById("ctx");
+    microsoftTeams.app.initialize().then(async () => {
+      const c = await microsoftTeams.app.getContext();
+      // Tenant ID tells you which client is viewing. Useful later for per-client content.
+      ctx.innerHTML = "Signed in as " + (c.user?.userPrincipalName || "unknown") +
+        "<br>Tenant: <code>" + (c.user?.tenant?.id || "unknown") + "</code>";
+      microsoftTeams.app.notifySuccess();
+    }).catch(() => {
+      ctx.textContent = "Open this page inside Teams to see your account details.";
+    });
+  </script>
+</body>
+</html>
